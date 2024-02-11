@@ -1,0 +1,6 @@
+{
+    "Posts": true,
+    "Users": true,
+    "Category": true,
+    "Tag": true
+}
