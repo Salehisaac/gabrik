@@ -31,13 +31,7 @@ class PostsController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $post = Post::create([
-            'title' => '1',
-            'content' => '1',
-            'user_id' => 1,
-            'image' => 'sdgsgsgsg',
-            'category_id' => 1,
-        ]);
+
     }
 
     /**

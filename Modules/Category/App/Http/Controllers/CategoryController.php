@@ -3,26 +3,17 @@
 namespace Modules\Category\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Content\PostCategoryRequest;
-use App\Http\Services\Image\ImageCacheService;
-use App\Http\Services\Image\FileService;
-use App\Models\Content\Copan;
-use App\Models\Content\OfflinePayment;
-use App\Models\Content\PostCategory;
-use App\Models\User;
+
 use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Modules\Category\App\Models\Category;
 
 class CategoryController extends Controller
 {
 
-    function __construct()
-    {
 
-        $this->middleware('can:read');
-    }
 
     /**
      * Display a listing of the resource.
@@ -38,15 +29,9 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $user = Auth::user();
-
-
-
-        /*if ($user->can('see'))*/
-
-
-        $postCategories= PostCategory::orderBy('created_at', 'desc')->simplePaginate(15);
-        return view('admin.content.category.index', compact('postCategories'));
+         Auth::user();
+        $Categories= Category::orderBy('created_at', 'desc')->simplePaginate(15);
+        return view('category::index', compact('Categories'));
 
         /*else
         {
@@ -63,7 +48,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.content.category.create');
+        return view('category::create');
     }
 
     /**
@@ -73,30 +58,10 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(PostCategoryRequest $request , FileService $imageService)
+    public function store(Request $request )
     {
         $inputs = $request->all();
-        if ($request->hasFile('image'))
-        {
-
-            $imageService->setExclusiveDirectory('admin-assets/images' . DIRECTORY_SEPARATOR . 'post-category');
-
-            /*$result = $imageService->save($request->file('image'));*/
-
-            /* $result = $imageService->fitAndSave($request->file('image'), 600,150);
-             exit();*/
-
-            $result = $imageService->createIndexAndSave($request->file('image'));
-
-        }
-
-        if($result === false)
-        {
-            return redirect()->route('admin.content.category.index')->with('swal-error', 'آپلود عکس با خطا مواجه شد  ');
-        }
-        $inputs['image'] = $result;
-
-        $postCategory = PostCategory::create($inputs);
+        $category = Category::create($inputs);
         return redirect()->route('admin.content.category.index')->with('swal-success', 'دسته بندی جدید شما با موفقیت ثبت شد  ');
     }
 
@@ -117,10 +82,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(PostCategory $postCategory)
+    public function edit(Category $category)
     {
-
-        return view('admin.content.category.edit', compact('postCategory'));
+        return view('category::edit', compact('category'));
     }
 
     /**
@@ -130,46 +94,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostCategoryRequest $request, PostCategory $postCategory, FileService $imageService)
+    public function update(Request $request, Category $category)
     {
         $inputs = $request->all();
-        if ($request->hasFile('image'))
-        {
-            if (!empty($postCategory->image))
-            {
-                $imageService->deleteDirectoryAndFiles($postCategory->image['directory']);
-            }
-            $imageService->setExclusiveDirectory('admin-assets/images' . DIRECTORY_SEPARATOR . 'post-category');
 
-            /*$result = $imageService->save($request->file('image'));*/
-
-            /* $result = $imageService->fitAndSave($request->file('image'), 600,150);
-             exit();*/
-
-            $result = $imageService->createIndexAndSave($request->file('image'));
-
-            if ($result === false)
-            {
-                return redirect()->route('admin.content.category.index')->with('swal-error', 'آپلود عکس با خطا مواجه شد  ');
-            }
-
-            $inputs['image'] = $result;
-
-        }
-
-        else
-        {
-            if (isset($inputs['currentImage']) && !empty($postCategory->image))
-            {
-                $image = $postCategory->image;
-                $image['currentImage'] = $inputs['currentImage'];
-                $inputs['image'] = $image;
-            }
-        }
-
-
-
-        $postCategory ->update($inputs);
+        $category ->update($inputs);
         return redirect()->route('admin.content.category.index')->with('swal-success', 'دسته بندی  شما با موفقیت ویرایش شد  ');
 
 
