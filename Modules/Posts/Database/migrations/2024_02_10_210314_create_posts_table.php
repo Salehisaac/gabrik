@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('gallery');
             $table->string('slug');
             $table->string('video');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->softDeletes();
             $table->timestamps();
         });

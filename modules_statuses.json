@@ -2,5 +2,10 @@
     "Posts": true,
     "Users": true,
     "Category": true,
-    "Tag": true
+    "Tag": true,
+    "Banner": true,
+    "Comment": true,
+    "FAQ": true,
+    "Menue": true,
+    "Pag": true
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Posts\App\Models\Post;
 
 class PostsController extends Controller
 {
@@ -22,7 +23,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts::create');
+
     }
 
     /**
@@ -30,7 +31,13 @@ class PostsController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        //
+        $post = Post::create([
+            'title' => '1',
+            'content' => '1',
+            'user_id' => 1,
+            'image' => 'sdgsgsgsg',
+            'category_id' => 1,
+        ]);
     }
 
     /**
@@ -38,7 +45,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return view('posts::show');
+//        return view('posts::show');
     }
 
     /**
@@ -46,7 +53,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        return view('posts::edit');
+//        return view('posts::edit');
     }
 
     /**
