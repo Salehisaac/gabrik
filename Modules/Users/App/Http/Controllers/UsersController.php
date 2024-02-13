@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Users\App\Models\User;
 
 class UsersController extends Controller
 {
@@ -14,7 +15,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('users::index');
+        $users = User::orderBy('created_at', 'desc')->simplePaginate(100);
+        return view('users::index' , compact('users'));
     }
 
     /**
@@ -30,38 +32,44 @@ class UsersController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        //
+        $inputs = $request->all();
+        $result = User::create($inputs);
+        return redirect()->route('users.index')->with('swal-success', 'کاربر جدید شما با موفقیت ثبت شد');
     }
 
     /**
      * Show the specified resource.
      */
-    public function show($id)
+    public function show(User $user)
     {
-        return view('users::show');
+        return view('users::show', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        return view('users::edit');
+        return view('users::edit' , compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id): RedirectResponse
+    public function update(Request $request, User $user): RedirectResponse
     {
-        //
+        $inputs = $request->all();
+        $user->update($inputs);
+        return redirect()->route('users.index')->with('swal-success', 'کاربر جدید شما با موفقیت ویرایش شد');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $result = $user->delete();
+        return redirect()->route('users.index')->with('swal-success', 'کاربر جدید شما با موفقیت حذف شد');
     }
 }

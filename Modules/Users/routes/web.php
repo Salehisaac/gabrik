@@ -15,7 +15,7 @@ use Modules\Users\App\Http\Controllers\UsersController;
 */
 
 Route::group([], function () {
-    Route::resource('users', UsersController::class)->names('users');
+    Route::resource('users', UsersController::class)->names('users')->middleware('admin');
 });
 
 
