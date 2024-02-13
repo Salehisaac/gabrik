@@ -60,6 +60,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request )
     {
+        $request->validate([
+            'name' => 'required|regex:/^[\p{L}\s]+$/u',
+            'slug' => 'required',
+            'description' => 'required|min:5',
+        ]);
         $inputs = $request->all();
         $category = Category::create($inputs);
         return redirect()->route('admin.content.category.index')->with('swal-success', 'دسته بندی جدید شما با موفقیت ثبت شد  ');
@@ -96,6 +101,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        $request->validate([
+            'name' => 'required|regex:/^[\p{L}\s]+$/u',
+            'slug' => 'required',
+            'description' => 'required|min:5',
+        ]);
+
         $inputs = $request->all();
 
         $category ->update($inputs);
@@ -110,10 +121,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PostCategory $postCategory)
+    public function destroy(Category $category)
     {
-        $result = $postCategory->delete();
-        return redirect()->route('admin.content.category.index')->with('swal-success', 'دسته بندی  شما با موفقیت حذف شد  ');
+        $result = $category->delete();
+        return redirect()->route('admin.content.category.index')->with('swal-success', 'دسته بندی  شما با موفقیت حذف شد');
     }
 
     public function status(PostCategory $postCategory)
