@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('video');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->enum('type', ['blog', 'project']);
             $table->softDeletes();
             $table->timestamps();
         });
