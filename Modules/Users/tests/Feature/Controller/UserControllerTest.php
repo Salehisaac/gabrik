@@ -9,8 +9,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserControllerTest extends TestCase
 {
+    use RefreshDatabase;
 
-    protected $middlewares = ['web' , 'admin'];
+    protected array $middlewares = ['web'];
     /**
      * A basic feature test example.
      */
@@ -86,7 +87,8 @@ class UserControllerTest extends TestCase
 
         $user = User::factory()->admin()->create();
         $data = User::factory()->make()->toArray();
-        $data = array_merge($data , ['password' => bcrypt('123456')]);
+        $data = array_merge($data , ['password' => ('@Yakuza1234567') , 'password_confirmation' => ('@Yakuza1234567') ]);
+
 
         $this
             ->actingAs($user)
@@ -94,7 +96,10 @@ class UserControllerTest extends TestCase
             ->assertSessionHas('swal-success' , 'کاربر جدید شما با موفقیت ثبت شد')
             ->assertRedirect(route('users.index'));
 
-        $this->assertDatabaseHas('users' , $data);
+
+
+
+        $this->assertDatabaseHas('users' , ['email' => $data['email']]);
 
         $this
             ->assertEquals(

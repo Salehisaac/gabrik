@@ -15,7 +15,8 @@ use Modules\Users\App\Http\Controllers\UsersController;
 */
 
 Route::group([], function () {
-    Route::resource('users', UsersController::class)->names('users')->middleware('admin');
+    Route::resource('users', UsersController::class)->names('users');
+    Route::get('user/status/{user}' , [UsersController::class , 'status'])->name('users.status');
 });
 
 

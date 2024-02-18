@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Posts\App\Models\Post;
+use Modules\Users\App\Http\Requests\UserRequest;
 use Modules\Users\App\Models\User;
 
 class UsersController extends Controller
@@ -30,7 +32,7 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(UserRequest $request): RedirectResponse
     {
         $inputs = $request->all();
         $result = User::create($inputs);
@@ -42,6 +44,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
+
         return view('users::show', compact('user'));
     }
 
@@ -56,7 +59,7 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user): RedirectResponse
+    public function update(UserRequest $request, User $user): RedirectResponse
     {
         $inputs = $request->all();
         $user->update($inputs);
@@ -72,4 +75,30 @@ class UsersController extends Controller
         $result = $user->delete();
         return redirect()->route('users.index')->with('swal-success', 'کاربر جدید شما با موفقیت حذف شد');
     }
+
+    public function status(User $user)
+    {
+        $user->status = $user->status == '0' ? '1' : '0';
+        $result = $user->save();
+        if ($result)
+        {
+
+            if ($user->status ==0)
+            {
+
+                return \response()->json(['status' => true, 'checked' => false]);
+            }
+            else
+            {
+
+                return \response()->json(['status' => true, 'checked' => true]);
+            }
+        }
+        else
+        {
+            return response()->json(['status' => false, 'message' => 'Something went wrong, Please try again']);
+        }
+    }
+
+
 }

@@ -29,6 +29,8 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'status',
+        'password_confirmation'
     ];
 
     /**
@@ -39,6 +41,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'password_confirmation'
     ];
 
     /**
@@ -49,6 +52,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'password_confirmation' => 'hashed'
     ];
 
     protected static function newFactory()
