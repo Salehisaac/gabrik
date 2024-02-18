@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Content\CommentController;
 use App\Http\Controllers\Admin\Content\FAQController;
 use App\Http\Controllers\Admin\Content\MenuController;
 use App\Http\Controllers\admin\content\PageController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\admin\notify\EmailController;
 use App\Http\Controllers\Admin\Notify\EmailFileController;
@@ -18,7 +19,6 @@ use App\Http\Controllers\Admin\Ticket\TicketPriorityController;
 use App\Http\Controllers\Admin\User\AdminUserController;
 use App\Http\Controllers\admin\user\PermissionController;
 use App\Http\Controllers\admin\user\RoleController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/admin', [HomeController::class, 'index'])->name('admin.home');
 
 
 //    Route::prefix('user')->namespace('User')->group(function () {
