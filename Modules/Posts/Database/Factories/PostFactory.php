@@ -31,6 +31,7 @@ class PostFactory extends Factory
             'video' => $this->faker->url,
             'user_id' => User::factory(),
             'category_id' => Category::factory(),
+            'type' => $this->faker->randomElement(['blog', 'project']),
         ];
     }
 }

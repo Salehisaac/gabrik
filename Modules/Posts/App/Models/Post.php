@@ -28,10 +28,12 @@ class Post extends Model
         'title',
         'content',
         'image',
+        'video',
         'gallery',
         'slug',
         'user_id',
         'category_id',
+        'type'
     ];
 
     public function category()
