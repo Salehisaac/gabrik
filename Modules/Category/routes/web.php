@@ -15,7 +15,7 @@ use Modules\Category\App\Http\Controllers\CategoryController;
 |
 */
 
-Route::prefix('admin-category')->middleware('admin')->group(function () {
+Route::prefix('admin-category')->group(function () {
     Route::get('/' , [CategoryController::class , 'index'])->name('admin.content.category.index');
     Route::get('/create' , 'CategoryController@create')->name('admin.content.category.create');
     Route::post('/store' , 'CategoryController@store')->name('admin.content.category.store');

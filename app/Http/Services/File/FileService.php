@@ -13,7 +13,7 @@ class FileService extends FileToolsService
         //execute provider
         $this->provider();
         //save File
-        $result = $file->move(public_path($this->getFinalFileDirectory()), $this->getFinalFileName());
+        $result = $file->move(public_path('/videos/'.$this->getFinalFileDirectory()), $this->getFinalFileName());
         return $result ? $this->getFileAddress() : false;
     }
 

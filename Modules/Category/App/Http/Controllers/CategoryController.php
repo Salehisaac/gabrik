@@ -4,6 +4,7 @@ namespace Modules\Category\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
+use App\Http\Services\Image\ImageService;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,8 +31,8 @@ class CategoryController extends Controller
     {
 
          Auth::user();
-        $Categories= Category::orderBy('created_at', 'desc')->simplePaginate(15);
-        return view('category::index', compact('Categories'));
+        $categories= Category::orderBy('created_at', 'desc')->simplePaginate(15);
+        return view('category::index', compact('categories'));
 
         /*else
         {
@@ -58,14 +59,31 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request )
+    public function store(Request $request , ImageService $imageService )
     {
-        $request->validate([
-            'name' => 'required|regex:/^[\p{L}\s]+$/u',
-            'slug' => 'required',
-            'description' => 'required|min:5',
-        ]);
         $inputs = $request->all();
+
+        if ($request->hasFile('image'))
+        {
+
+            /*$result = $imageService->save($request->file('image'));*/
+
+            /* $result = $imageService->fitAndSave($request->file('image'), 600,150);
+             exit();*/
+
+            $result = $imageService->save($request->file('image') , 'categories');
+
+
+
+            if($result === false)
+            {
+
+                return redirect()->route('posts.index')->with('swal-error', 'آپلود عکس با خطا مواجه شد');
+            }
+
+
+        }
+        $inputs['image'] = $result;
         $category = Category::create($inputs);
         return redirect()->route('admin.content.category.index')->with('swal-success', 'دسته بندی جدید شما با موفقیت ثبت شد  ');
     }
@@ -99,17 +117,33 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Category $category , ImageService $imageService)
     {
-        $request->validate([
-            'name' => 'required|regex:/^[\p{L}\s]+$/u',
-            'slug' => 'required',
-            'description' => 'required|min:5',
-        ]);
 
         $inputs = $request->all();
 
-        $category ->update($inputs);
+        if ($request->hasFile('image'))
+        {
+
+            /*$result = $imageService->save($request->file('image'));*/
+
+            /* $result = $imageService->fitAndSave($request->file('image'), 600,150);
+             exit();*/
+
+            $result = $imageService->save($request->file('image') , 'categories');
+
+
+
+            if($result === false)
+            {
+                return redirect()->route('posts.index')->with('swal-error', 'آپلود عکس با خطا مواجه شد');
+            }
+
+            $inputs['image'] = $result;
+        }
+
+
+        $category->update($inputs);
         return redirect()->route('admin.content.category.index')->with('swal-success', 'دسته بندی  شما با موفقیت ویرایش شد  ');
 
 
@@ -127,13 +161,13 @@ class CategoryController extends Controller
         return redirect()->route('admin.content.category.index')->with('swal-success', 'دسته بندی  شما با موفقیت حذف شد');
     }
 
-    public function status(PostCategory $postCategory)
+    public function status(Category $category)
     {
-        $postCategory->status = $postCategory->status == 0 ? 1 : 0;
-        $result = $postCategory->save();
+        $category->status = $category->status == '0' ? '1' : '0';
+        $result = $category->save();
         if ($result)
         {
-            if ($postCategory->status ==0)
+            if ($category->status ==0)
             {
                 return \response()->json(['status' => true, 'checked' => false]);
             }
@@ -147,4 +181,5 @@ class CategoryController extends Controller
             return response()->json(['status' => false, 'message' => 'Something went wrong, Please try again']);
         }
     }
+
 }

@@ -26,7 +26,12 @@ class Category extends Model
         'name',
         'slug',
         'description',
+        'image',
+        'status',
+        'tags'
     ];
+
+    protected $casts = ['image' => 'array'];
     protected static function newFactory()
     {
         return new CategoryFactory();
@@ -36,4 +41,5 @@ class Category extends Model
     {
         return $this->hasMany(Post::class , 'category_id');
     }
+
 }

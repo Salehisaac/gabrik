@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
+            $table->string('summary');
             $table->string('image');
             $table->string('gallery');
             $table->string('slug');
@@ -22,6 +23,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->enum('type', ['blog', 'project']);
+            $table->enum('commentable', ['0', '1'])->default(1);
+            $table->enum('status', ['0', '1'])->default(1);
+            $table->string('tags');
             $table->softDeletes();
             $table->timestamps();
         });

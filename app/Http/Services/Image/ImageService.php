@@ -3,8 +3,10 @@
 namespace App\Http\Services\Image;
 
 use Illuminate\Support\Facades\Config;
+use Intervention\Image\Facades\Image;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use Nette\Utils\Random;
 
 
 class ImageService extends ImageToolsService
@@ -19,7 +21,15 @@ class ImageService extends ImageToolsService
 
         $manager = new ImageManager(new Driver());
         $proper_image = $manager->read($image);
-        $imagePath = 'public/admin-assets/'. $directory .'/'. $this->getImageName() . now() . '.' . $this->getImageFormat();
+        $imagePath = 'admin-assets/'. $directory .'/images';
+
+        if (!is_dir($imagePath))
+        {
+            mkdir($imagePath , 0777 , true);
+        }
+
+
+        $imagePath = $imagePath . '/' . $this->getImageName() .Random::generate() . now() . '.' . $this->getImageFormat();
         $proper_image->save($imagePath);
         return $imagePath;
     }
@@ -39,7 +49,7 @@ class ImageService extends ImageToolsService
     public function createIndexAndSave($image)
     {
             //get data from config
-            $imageSizes = Config::get('image.index-image-sizes');
+           $imageSizes = Config::get('image.index-images-sizes');
 
             //set image
             $this->setImage($image);

@@ -16,4 +16,9 @@ use Modules\Posts\App\Http\Controllers\PostsController;
 
 Route::group([], function () {
     Route::resource('posts', PostsController::class)->names('posts');
+    Route::get('post/status/{post}' , [PostsController::class , 'status'])->name('posts.status');
+    Route::get('user/commentable/{post}' , [PostsController::class , 'commentable'])->name('posts.commentable');
+    Route::get('user/gallery/{post}' , [PostsController::class , 'gallery'])->name('posts.gallery');
+    Route::delete('user/delete_gallery/{post}/{index}', [PostsController::class, 'deleteGalleryImage'])->name('posts.delete_gallery_item');
+
 });

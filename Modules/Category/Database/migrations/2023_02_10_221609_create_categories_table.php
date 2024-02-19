@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->text('description');
+            $table->enum('status' , [0 , 1])->default(1);
+            $table->text('image');
+            $table->string('tags');
             $table->softDeletes();
             $table->timestamps();
         });

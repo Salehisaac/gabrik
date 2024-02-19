@@ -67,8 +67,8 @@
                                 <td>{{ $post->title }}</td>
                                 <td>
                                     @php
-                                        if (!empty($post->postCategory->name))
-                                            echo $post->postCategory->name;
+                                        if (!empty($post->category->name))
+                                            echo $post->category->name;
                                         else
                                             echo 'وجود ندارد';
 
@@ -80,14 +80,25 @@
                                 </td>
                                 <td>{{ $post->slug }}</td>
                                 <td>
-{{--                                    <img src="{{ asset($post->image['indexArray'][$post->image['currentImage']] ) }}" alt="" width="50" height="50">--}}
+                                    <img src="{{ asset($post->image) }}" alt="" width="50" height="50">
                                 </td>
+
+
+
+                                <td>
+                                    <a href="{{ asset('videos/' .$post->video) }}" class="btn btn-warning btn-sm" download>
+                                        <i class="fa fa-download ms-1"></i>
+                                    </a>
+                                </td>
+
+
+                                <td>{{ $post->type }}</td>
 
                                 <td>{{ $post->tags }}</td>
 
                                 <td>
                                     <label>
-                                        <input id="{{ $post->id }}" onchange="changeStatus({{ $post->id }})" data-url="{{ route('admin.content.post.status', $post->id) }}" type="checkbox" @if ($post->status === 1)
+                                        <input id="{{ $post->id }}" onchange="changeStatus({{ $post->id }})" data-url="{{ route('posts.status', $post->id) }}" type="checkbox" @if ($post->status === '1')
                                             checked
                                             @endif>
                                     </label>
@@ -95,20 +106,16 @@
 
                                 <td>
                                     <label>
-                                        <input id="{{ $post->id }}-commentable" onchange="commentable({{ $post->id }})" data-url="{{ route('admin.content.post.commentable', $post->id) }}" type="checkbox" @if ($post->commentable === 1)
+                                        <input id="{{ $post->id }}-commentable" onchange="commentable({{ $post->id }})" data-url="{{ route('posts.commentable', $post->id) }}" type="checkbox" @if ($post->commentable === '1')
                                             checked
                                             @endif>
                                     </label>
                                 </td>
 
                                 <td class="width-16-rem" style="text-align: left">
-                                    @can('update', $post)
+
                                         <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit ms-1"></i>ویرایش</a>
-
-                                    @else
-                                        <a href="#" class="btn btn-danger btn-sm disabled"><i class="fa fa-edit ms-1"></i>دسترسی ندارید</a>
-
-                                    @endcan
+                                    <a href="{{ route('posts.gallery', $post->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-photo-video ms-1"></i>گالری</a>
 
                                     <form class="d-inline" action="{{ route('posts.destroy', $post->id) }}" method="post">
                                         @csrf

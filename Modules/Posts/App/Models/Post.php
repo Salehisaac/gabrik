@@ -2,11 +2,12 @@
 
 namespace Modules\Posts\App\Models;
 
-use App\Models\Category;
+
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Category\App\Models\Category;
 use Modules\Posts\Database\Factories\PostFactory;
 use Modules\Users\App\Models\User;
 
@@ -33,7 +34,11 @@ class Post extends Model
         'slug',
         'user_id',
         'category_id',
-        'type'
+        'type',
+        'summary',
+        'tags',
+        'commentable',
+        'status',
     ];
 
     public function category()

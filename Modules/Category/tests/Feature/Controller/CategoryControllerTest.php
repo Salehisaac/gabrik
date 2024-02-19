@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CategoryControllerTest extends TestCase
 {
-    protected $middlewares = ['web' , 'admin'];
+    protected $middlewares = ['web'];
     /**
      * A basic feature test example.
      */

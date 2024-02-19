@@ -65,8 +65,8 @@
                                 <td><?php echo e($post->title); ?></td>
                                 <td>
                                     <?php
-                                        if (!empty($post->postCategory->name))
-                                            echo $post->postCategory->name;
+                                        if (!empty($post->category->name))
+                                            echo $post->category->name;
                                         else
                                             echo 'وجود ندارد';
 
@@ -78,14 +78,25 @@
                                 </td>
                                 <td><?php echo e($post->slug); ?></td>
                                 <td>
-
+                                    <img src="<?php echo e(asset($post->image)); ?>" alt="" width="50" height="50">
                                 </td>
+
+
+
+                                <td>
+                                    <a href="<?php echo e(asset('videos/' .$post->video)); ?>" class="btn btn-warning btn-sm" download>
+                                        <i class="fa fa-download ms-1"></i>
+                                    </a>
+                                </td>
+
+
+                                <td><?php echo e($post->type); ?></td>
 
                                 <td><?php echo e($post->tags); ?></td>
 
                                 <td>
                                     <label>
-                                        <input id="<?php echo e($post->id); ?>" onchange="changeStatus(<?php echo e($post->id); ?>)" data-url="<?php echo e(route('admin.content.post.status', $post->id)); ?>" type="checkbox" <?php if($post->status === 1): ?>
+                                        <input id="<?php echo e($post->id); ?>" onchange="changeStatus(<?php echo e($post->id); ?>)" data-url="<?php echo e(route('posts.status', $post->id)); ?>" type="checkbox" <?php if($post->status === '1'): ?>
                                             checked
                                             <?php endif; ?>>
                                     </label>
@@ -93,20 +104,16 @@
 
                                 <td>
                                     <label>
-                                        <input id="<?php echo e($post->id); ?>-commentable" onchange="commentable(<?php echo e($post->id); ?>)" data-url="<?php echo e(route('admin.content.post.commentable', $post->id)); ?>" type="checkbox" <?php if($post->commentable === 1): ?>
+                                        <input id="<?php echo e($post->id); ?>-commentable" onchange="commentable(<?php echo e($post->id); ?>)" data-url="<?php echo e(route('posts.commentable', $post->id)); ?>" type="checkbox" <?php if($post->commentable === '1'): ?>
                                             checked
                                             <?php endif; ?>>
                                     </label>
                                 </td>
 
                                 <td class="width-16-rem" style="text-align: left">
-                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $post)): ?>
+
                                         <a href="<?php echo e(route('posts.edit', $post->id)); ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit ms-1"></i>ویرایش</a>
-
-                                    <?php else: ?>
-                                        <a href="#" class="btn btn-danger btn-sm disabled"><i class="fa fa-edit ms-1"></i>دسترسی ندارید</a>
-
-                                    <?php endif; ?>
+                                    <a href="<?php echo e(route('posts.gallery', $post->id)); ?>" class="btn btn-warning btn-sm"><i class="fa fa-photo-video ms-1"></i>گالری</a>
 
                                     <form class="d-inline" action="<?php echo e(route('posts.destroy', $post->id)); ?>" method="post">
                                         <?php echo csrf_field(); ?>
