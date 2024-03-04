@@ -3,10 +3,9 @@
 namespace Modules\Comment\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Content\CommentRequest;
-use App\Models\Content\Comment;
-use App\Models\Content\Menu;
 use Illuminate\Http\Request;
+use Modules\Comment\App\Http\Requests\CommentRequest;
+use Modules\Comment\App\Models\Comment;
 
 class CommentController extends Controller
 {
@@ -18,15 +17,15 @@ class CommentController extends Controller
     public function index()
     {
 
-        $unSeenComments = Comment::where('commentable_type' , 'App\Models\Content\Post')->where('seen', 0)->get();
+        $unSeenComments = Comment::where('commentable_type' , 'Modules\Posts\App\Models\Post')->where('seen', 0)->get();
 
         foreach ($unSeenComments as $unSeenComment)
         {
             $unSeenComment->seen = 1;
             $result = $unSeenComment->save();
         }
-        $comments = Comment::orderBy('created_at', 'desc')->where('commentable_type' , 'App\Models\Content\Post')->paginate(10);
-        return view('admin.content.comment.index', compact('comments'));
+        $comments = Comment::orderBy('created_at', 'desc')->where('commentable_type' , 'Modules\Posts\App\Models\Post')->paginate(10);
+        return view('comment::index', compact('comments'));
     }
 
     /**
@@ -37,7 +36,7 @@ class CommentController extends Controller
     public function show(Comment $comment)
     {
 
-        return view('admin.content.comment.show', compact('comment'));
+        return view('comment::show', compact('comment'));
     }
 
     /**
@@ -46,7 +45,7 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CommentRequest $request)
     {
         //
     }
@@ -77,7 +76,7 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CommentRequest $request, $id)
     {
         //
     }
@@ -127,7 +126,7 @@ class CommentController extends Controller
         {
             $inputs = $request->all();
             $inputs['parent_id'] = $comment->id;
-            $inputs['author_id'] = 1;
+            $inputs['author_id'] = 9;
             $inputs['status'] = 1;
             $inputs['approved'] = 1;
             $inputs['commentable_id'] = $comment->commentable_id;

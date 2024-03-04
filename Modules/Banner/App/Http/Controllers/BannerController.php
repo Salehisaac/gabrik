@@ -3,10 +3,10 @@
 namespace Modules\Banner\App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Content\Banner;
 use App\Http\Controllers\Controller;
 use App\Http\Services\Image\ImageService;
-use App\Http\Requests\Admin\Content\BannerRequest;
+use Modules\Banner\App\Http\Requests\BannerRequest;
+use Modules\Banner\App\Models\Banner;
 
 class BannerController extends Controller
 {
@@ -19,7 +19,7 @@ class BannerController extends Controller
     {
         $banners = Banner::orderBy('created_at', 'desc')->simplePaginate(15);
         $positions = Banner::$positions;
-        return view('admin::content::banner::index', compact('banners', 'positions'));
+        return view('banner::index', compact('banners', 'positions'));
     }
 
     /**
@@ -30,7 +30,7 @@ class BannerController extends Controller
     public function create()
     {
         $positions = Banner::$positions;
-        return view('admin::content::banner::create', compact('positions'));
+        return view('banner::create', compact('positions'));
     }
 
     /**
@@ -45,11 +45,13 @@ class BannerController extends Controller
 
 
         if ($request->hasFile('image')) {
-            $imageService->setExclusiveDirectory('admin-assets/images' . DIRECTORY_SEPARATOR . 'banner');
-            $result = $imageService->save($request->file('image'));
+
+            $result = $imageService->save($request->file('image') , 'banners');
+
             if ($result === false) {
                 return redirect()->route('admin.content.banner.index')->with('swal-error', 'آپلود تصویر با خطا مواجه شد');
             }
+
             $inputs['image'] = $result;
         }
         $banner = Banner::create($inputs);
@@ -75,7 +77,7 @@ class BannerController extends Controller
     public function edit(Banner $banner)
     {
         $positions = Banner::$positions;
-        return view('admin::content::banner::edit', compact('banner', 'positions'));
+        return view('banner::edit', compact('banner', 'positions'));
 
     }
 
@@ -96,8 +98,7 @@ class BannerController extends Controller
             if (!empty($banner->image)) {
                 $imageService->deleteImage($banner->image);
             }
-            $imageService->setExclusiveDirectory('admin-assets/images' . DIRECTORY_SEPARATOR . 'banner');
-            $result = $imageService->save($request->file('image'));
+            $result = $imageService->save($request->file('image') , 'banners');
             if ($result === false) {
                 return redirect()->route('admin.content.banner.index')->with('swal-error', 'آپلود تصویر با خطا مواجه شد');
             }

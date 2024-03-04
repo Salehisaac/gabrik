@@ -3,12 +3,9 @@
 namespace Modules\Menue\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Content\MenuRequest;
-use App\Http\Requests\Admin\Content\PostCategoryRequest;
-use App\Http\Services\Image\FileService;
-use App\Models\Content\Menu;
-use App\Models\Content\PostCategory;
 use Illuminate\Http\Request;
+use Modules\Menue\App\Http\Requests\MenuRequest;
+use Modules\Menue\App\Models\Menu;
 
 class MenueController extends Controller
 {
@@ -20,7 +17,7 @@ class MenueController extends Controller
     public function index()
     {
         $menus= Menu::orderBy('created_at', 'desc')->simplePaginate(15);
-        return view('admin.content.menu.index', compact('menus'));
+        return view('menue::index', compact('menus'));
     }
 
     /**
@@ -31,7 +28,7 @@ class MenueController extends Controller
     public function create()
     {
         $menus = Menu::where('parent_id', 0)->orWhere('parent_id', NULL)->get();
-        return view('admin.content.menu.create', compact('menus'));
+        return view('menue::create', compact('menus'));
     }
 
     /**
@@ -69,7 +66,7 @@ class MenueController extends Controller
     public function edit(Menu $menu)
     {
         $parent_menus = Menu::where('parent_id', 0)->orWhere('parent_id', NULL)->get()->except($menu->id);
-        return view('admin.content.menu.edit', compact('menu', 'parent_menus'));
+        return view('menue::edit', compact('menu', 'parent_menus'));
     }
 
     /**
@@ -85,8 +82,6 @@ class MenueController extends Controller
 
         $menu ->update($inputs);
         return redirect()->route('admin.content.menu.index')->with('swal-success', 'منوی  شما با موفقیت ویرایش شد  ');
-
-
     }
 
     /**

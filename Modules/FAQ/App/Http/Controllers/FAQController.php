@@ -3,11 +3,9 @@
 namespace Modules\FAQ\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Content\FaqRequest;
-use App\Models\Content\Faq;
-use App\Models\Content\Post;
-use App\Models\Content\PostCategory;
 use Illuminate\Http\Request;
+use Modules\FAQ\App\Http\Requests\FAQRequest;
+use Modules\FAQ\App\Models\Faq;
 
 class FAQController extends Controller
 {
@@ -19,7 +17,7 @@ class FAQController extends Controller
     public function index()
     {
         $faqs = Faq::orderBy('created_at', 'desc')->simplePaginate(15);
-        return view('admin.content.faq.index', compact('faqs'));
+        return view('faq::index', compact('faqs'));
     }
 
     /**
@@ -29,7 +27,7 @@ class FAQController extends Controller
      */
     public function create()
     {
-        return view('admin.content.faq.create');
+        return view('faq::create');
     }
 
     /**
@@ -38,7 +36,7 @@ class FAQController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FaqRequest $request)
+    public function store(FAQRequest $request)
     {
         $inputs = $request->all();
         $faq = Faq::create($inputs);
@@ -64,7 +62,7 @@ class FAQController extends Controller
      */
     public function edit(Faq $faq)
     {
-        return view('admin.content.faq.edit', compact('faq'));
+        return view('faq::edit', compact('faq'));
     }
 
 
@@ -75,7 +73,7 @@ class FAQController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FaqRequest $request, Faq $faq)
+    public function update(FAQRequest $request, Faq $faq)
     {
         $inputs = $request->all();
         $faq->update($inputs);

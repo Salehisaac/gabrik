@@ -9,6 +9,7 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Modules\Category\App\Http\Requests\CategoryRequest;
 use Modules\Category\App\Models\Category;
 
 class CategoryController extends Controller
@@ -59,7 +60,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request , ImageService $imageService )
+    public function store(CategoryRequest $request , ImageService $imageService )
     {
         $inputs = $request->all();
 

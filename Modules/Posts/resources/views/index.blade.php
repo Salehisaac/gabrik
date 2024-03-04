@@ -116,7 +116,6 @@
 
                                         <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit ms-1"></i>ویرایش</a>
                                     <a href="{{ route('posts.gallery', $post->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-photo-video ms-1"></i>گالری</a>
-
                                     <form class="d-inline" action="{{ route('posts.destroy', $post->id) }}" method="post">
                                         @csrf
                                         {{ method_field('delete') }}

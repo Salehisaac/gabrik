@@ -150,7 +150,7 @@
                                     <label for="">گالری </label>
                                     <input type="file" class="form-control form-control-sm" name="gallery[]" id="gallery[]" multiple>
                                 </div>
-                                @error('gallery')
+                                @error('gallery.*')
                                 <span>
                                     <strong class="alert_required bg-danger text-white p-1  rounded" role="alert">
                                         {{ $message }}

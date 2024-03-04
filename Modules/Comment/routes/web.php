@@ -18,7 +18,7 @@ Route::prefix('admin-comment')->group(function () {
     Route::get('/', [CommentController::class, 'index'])->name('admin.content.comment.index');
     Route::get('/show/{comment}', [CommentController::class, 'show'])->name('admin.content.comment.show');
     Route::delete('/destroy/{comment}', [CommentController::class, 'destroy'])->name('admin.content.comment.destroy');
-    Route::get('/approved/{comment}', [CommentController::class, 'approved'])->name('admin.content.comment.approved');
+    Route::put('/approved/{comment}', [CommentController::class, 'approved'])->name('admin.content.comment.approved');
     Route::get('/status/{comment}', [CommentController::class, 'status'])->name('admin.content.comment.status');
     Route::post('/answer/{comment}', [CommentController::class, 'answer'])->name('admin.content.comment.answer');
 });

@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('question');
             $table->text('answer');
+            $table->string('slug');
+            $table->tinyInteger('status')->default(0);
+            $table->string('tags');
             $table->timestamps();
             $table->softDeletes();
         });

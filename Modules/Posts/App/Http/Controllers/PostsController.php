@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Category\App\Models\Category;
+use Modules\Posts\App\Http\Requests\PostsRequest;
 use Modules\Posts\App\Models\Post;
 
 class PostsController extends Controller
@@ -36,25 +37,18 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request , ImageService $imageService , FileService $fileService): RedirectResponse
+    public function store(PostsRequest $request , ImageService $imageService , FileService $fileService): RedirectResponse
     {
 
 
 
         $inputs = $request->all();
-        $inputs['user_id'] = 8;
+        $inputs['user_id'] = 9;
 
         if ($request->hasFile('image'))
         {
 
-            /*$result = $imageService->save($request->file('image'));*/
-
-            /* $result = $imageService->fitAndSave($request->file('image'), 600,150);
-             exit();*/
-
             $result = $imageService->save($request->file('image') , 'posts');
-
-
 
             if($result === false)
             {
@@ -70,21 +64,12 @@ class PostsController extends Controller
         if ($request->hasAny('gallery'))
         {
 
-            /*$result = $imageService->save($request->file('image'));*/
-
-            /* $result = $imageService->fitAndSave($request->file('image'), 600,150);
-             exit();*/
-
             $result = [];
 
             foreach ($request->gallery as $gallery)
             {
                 array_push($result , $imageService->save($gallery , 'posts/gallery')) ;
-
             }
-
-
-
 
 
             if($result === false)
@@ -140,7 +125,7 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post , ImageService $imageService , FileService $fileService ): RedirectResponse
+    public function update(PostsRequest $request, Post $post , ImageService $imageService , FileService $fileService ): RedirectResponse
     {
         $inputs = $request->all();
 
@@ -184,9 +169,10 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $result = $post->delete();
+        return redirect()->route('posts.index')->with('swal-success', 'پست  شما با موفقیت حذف شد  ');
     }
 
     public function status(Post $post)
@@ -231,26 +217,52 @@ class PostsController extends Controller
         }
     }
 
-    public function deleteGalleryImage(Request $request, Post $post, $index)
+
+    public function updateGallery(Request $request ,Post $post , ImageService $imageService)
     {
-        dd($post);
-        // Retrieve the post by ID
-        $post = Post::findOrFail($post->id);
+        $inputs = $request->all();
+        $request->validate(
+            [
+                'gallery.*' => 'required'
+            ]
+        );
 
-        // Decode the gallery JSON string to an array
-        $gallery = json_decode($post->gallery, true);
+        if ($request->hasAny('gallery'))
+        {
 
-        // Remove the item at the specified index
-        if (isset($gallery[$index])) {
-            unset($gallery[$index]);
 
-            // Update the post's gallery attribute
-            $post->gallery = json_encode(array_values($gallery));
-            $post->save();
+            $result = [];
 
-            return response()->json(['success' => true], 200);
+            foreach ($request->gallery as $gallery)
+            {
+                array_push($result , $imageService->save($gallery , 'posts/gallery')) ;
+
+            }
+
+
+
+
+
+            if($result === false)
+            {
+
+                return redirect()->route('posts.index')->with('swal-error', 'آپلود عکس با خطا مواجه شد');
+            }
+
+            $inputs['gallery'] = json_encode($result);
+
         }
 
-        return response()->json(['error' => 'Gallery item not found'], 404);
+        $post->update($inputs);
+        return redirect()->route('posts.gallery' , $post->id)->with('swal-success', 'گالری پست شما با موفقیت ویرایش شد');
+
+
+    }
+
+    public function deleteGallery(Post $post)
+    {
+        $inputs['gallery'] =[];
+        $post->update($inputs);
+        return redirect()->route('posts.gallery' , $post->id)->with('swal-success', 'گالری پست شما با موفقیت ویرایش شد');
     }
 }

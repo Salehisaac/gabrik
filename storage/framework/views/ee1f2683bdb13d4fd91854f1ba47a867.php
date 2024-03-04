@@ -180,7 +180,7 @@ unset($__errorArgs, $__bag); ?>
                                     <label for="">گالری </label>
                                     <input type="file" class="form-control form-control-sm" name="gallery[]" id="gallery[]" multiple>
                                 </div>
-                                <?php $__errorArgs = ['gallery'];
+                                <?php $__errorArgs = ['gallery.*'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }

@@ -114,7 +114,6 @@
 
                                         <a href="<?php echo e(route('posts.edit', $post->id)); ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit ms-1"></i>ویرایش</a>
                                     <a href="<?php echo e(route('posts.gallery', $post->id)); ?>" class="btn btn-warning btn-sm"><i class="fa fa-photo-video ms-1"></i>گالری</a>
-
                                     <form class="d-inline" action="<?php echo e(route('posts.destroy', $post->id)); ?>" method="post">
                                         <?php echo csrf_field(); ?>
                                         <?php echo e(method_field('delete')); ?>

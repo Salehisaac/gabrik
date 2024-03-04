@@ -19,27 +19,37 @@
                 <span>پست ها</span>
             </a>
 
-{{--            @php--}}
+            <a href="{{ route('admin.video.index') }}" class="sidebar-link">
+                <i class="fas fa-bars"></i>
+                <span>ویدیو ها</span>
+            </a>
 
-{{--            $unseenComments = \App\Models\Comment::where('seen',0)->count();--}}
+            <a href="{{ route('admin.gallery.index') }}" class="sidebar-link">
+                <i class="fas fa-bars"></i>
+                <span>گالری ها</span>
+            </a>
+
+            @php
+
+            $unseenComments = Modules\Comment\App\Models\Comment::where('seen',0)->count();
 
 
-{{--            @endphp--}}
+            @endphp
 
-{{--            <a href="{{ route('admin.content.comment.index') }}" class="sidebar-link">--}}
-{{--                @if($unseenComments ===0)--}}
-{{--                <i class="fas fa-bars"></i>--}}
-{{--                <span>نظرات</span>--}}
-{{--                @endif--}}
-{{--                @if($unseenComments !==0)--}}
-{{--                <section class=" d-flex justify-content-between">--}}
-{{--                    <i class="fas fa-bars w-100" style="text-align: center"></i>--}}
-{{--                    <span class="w-100" style="text-align: left">نظرات</span>--}}
-{{--                <span><i class="fas fa-circle text-success comment-user-status"></i></span>--}}
+            <a href="{{ route('admin.content.comment.index') }}" class="sidebar-link">
+                @if($unseenComments ===0)
+                <i class="fas fa-bars"></i>
+                <span>نظرات</span>
+                @endif
+                @if($unseenComments !==0)
+                <section class=" d-flex justify-content-between">
+                    <i class="fas fa-bars w-100" style="text-align: center"></i>
+                    <span class="w-100" style="text-align: left">نظرات</span>
+                <span><i class="fas fa-circle text-success comment-user-status"></i></span>
 
-{{--                </section>--}}
-{{--                @endif--}}
-{{--            </a>--}}
+                </section>
+                @endif
+            </a>
             <a href="{{ route('admin.content.menu.index') }}" class="sidebar-link">
                 <i class="fas fa-bars"></i>
                 <span>منو</span>
@@ -47,10 +57,6 @@
             <a href="{{ route('admin.content.faq.index') }}" class="sidebar-link">
                 <i class="fas fa-bars"></i>
                 <span>سوالات متداول</span>
-            </a>
-            <a href="#" class="sidebar-link">
-                <i class="fas fa-bars"></i>
-                <span>پیج ساز</span>
             </a>
             <a href="{{ route('admin.content.banner.index') }}" class="sidebar-link">
                 <i class="fas fa-bars"></i>
@@ -66,12 +72,6 @@
                 <i class="fas fa-bars"></i>
                 <span>کاربران</span>
             </a>
-
-            <a href="#" class="sidebar-link">
-                <i class="fas fa-bars"></i>
-                <span>سطوح دسترسی</span>
-            </a>
-
 
 
             <section class="sidebar-part-title">تیکت ها</section>

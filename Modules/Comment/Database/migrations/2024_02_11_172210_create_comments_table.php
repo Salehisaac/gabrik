@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->text('content');
-            $table->string('slug');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->text('body');
+            $table->foreignId('parent_id')->constrained('comments');
+            $table->foreignId('author_id')->constrained('users');
+            $table->unsignedBigInteger('commentable_id');
+            $table->string('commentable_type');
+            $table->tinyInteger('seen')->default(0)->comment('0: unseen, 1: seen');
+            $table->tinyInteger('approved')->default(0)->comment('0: not approved, 1: approved');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
             $table->softDeletes();
-            $table->foreignId('parent_id')->nullable()->constrained('comments')->cascadeOnDelete();
-            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('commentable_id')->nullable()->constrained('posts')->cascadeOnDelete();
-            $table->string('commentable_type')->nullable();
-
         });
     }
 
