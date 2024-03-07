@@ -1,4 +1,4 @@
-<header class="u-clearfix u-header u-header" id="sec-a694"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+<header class="u-clearfix u-header u-header" id="sec-a694" style="background-color: #f4f4f4;"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <a href="{{ route('home') }}" class="u-image u-logo u-image-1" style="display: inline-block; margin-left: -100px;">
             <img src="{{ asset('images/logo.jpeg') }}" class="u-logo-image u-logo-image-1" style="width: 100px; height: auto; margin-top: -15px;">
         </a>

@@ -161,7 +161,7 @@
                                         {{ old('content', $post->content) }}
                                     </textarea>
                                 </div>
-                                @error('description')
+                                @error('content')
                                 <span>
                                     <strong class="alert_required bg-danger text-white p-1  rounded" role="alert">
                                         {{ $message }}

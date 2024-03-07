@@ -193,7 +193,7 @@ unset($__errorArgs, $__bag); ?>
 
                                     </textarea>
                                 </div>
-                                <?php $__errorArgs = ['description'];
+                                <?php $__errorArgs = ['content'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
