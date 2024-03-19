@@ -24,7 +24,7 @@ class ImageGalleryController extends Controller
     {
         $request->validate(
             [
-                'gallery.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'gallery.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:100000',
                 'gallery' => 'required|array|size:9',
                 'description' => 'required|string|max:500|min:5|regex:/^[ا-یa-zA-Z0-9\-۰-۹يء.,><\/;\n\r& ]+$/u',
             ]

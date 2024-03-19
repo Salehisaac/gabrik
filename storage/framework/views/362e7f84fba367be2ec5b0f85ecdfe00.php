@@ -112,14 +112,21 @@
 
                                 <td class="width-16-rem" style="text-align: left">
 
+                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $post)): ?>
                                         <a href="<?php echo e(route('posts.edit', $post->id)); ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit ms-1"></i>ویرایش</a>
-                                    <a href="<?php echo e(route('posts.gallery', $post->id)); ?>" class="btn btn-warning btn-sm"><i class="fa fa-photo-video ms-1"></i>گالری</a>
-                                    <form class="d-inline" action="<?php echo e(route('posts.destroy', $post->id)); ?>" method="post">
-                                        <?php echo csrf_field(); ?>
-                                        <?php echo e(method_field('delete')); ?>
+                                        <a href="<?php echo e(route('posts.gallery', $post->id)); ?>" class="btn btn-warning btn-sm"><i class="fa fa-photo-video ms-1"></i>گالری</a>
+                                        <form class="d-inline" action="<?php echo e(route('posts.destroy', $post->id)); ?>" method="post">
+                                            <?php echo csrf_field(); ?>
+                                            <?php echo e(method_field('delete')); ?>
 
-                                        <button class="btn btn-danger btn-sm delete" type="submit"><i class="fa fa-trash-alt ms-1"></i>حذف</button>
-                                    </form>
+                                            <button class="btn btn-danger btn-sm delete" type="submit"><i class="fa fa-trash-alt ms-1"></i>حذف</button>
+                                        </form>
+                                    <?php else: ?>
+                                        <button class="btn btn-primary btn-sm" disabled><i class="fa fa-edit ms-1" ></i>ویرایش</button>
+                                        <button class="btn btn-warning btn-sm" disabled><i class="fa fa-edit ms-1" ></i>گالری</button>
+                                        <button class="btn btn-danger btn-sm delete" disabled><i class="fa fa-trash-alt ms-1"></i>حذف</button>
+                                    <?php endif; ?>
+
                                 </td>
                             </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

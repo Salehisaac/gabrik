@@ -81,11 +81,18 @@
                             <section class="col-12 col-md-6 mt-2">
                                 <div class="form-group">
                                     <label for="">آدرس url</label>
-                                    <input name="url" type="text" class="form-control form-control-sm" value="{{old('url')}}">
+                                    <div id="urlSelection">
+                                        <select id="urlSelect" name="url_select" class="form-control form-control-sm">
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <input id="urlInput" name="url" type="text" class="form-control form-control-sm" value="{{ old('url') }}" placeholder="خودتان یک آدرس اضافه کنید">
+                                    </div>
                                 </div>
                                 @error('url')
                                 <span>
-                                    <strong class="alert_required bg-danger text-white p-1  rounded" role="alert">
+                                    <strong class="alert_required bg-danger text-white p-1 rounded" role="alert">
                                         {{ $message }}
                                     </strong>
                                 </span>
@@ -123,4 +130,28 @@
         </section>
     </section>
 
+@endsection
+
+@section('script')
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get references to select and input elements
+            var urlSelect = document.getElementById("urlSelect");
+            var urlInput = document.getElementById("urlInput");
+
+            // Add event listener to the select element
+            urlSelect.addEventListener("change", function() {
+                // Check if the selected option is the last one ("خودتان یک آدرس اضافه کنید")
+                if (urlSelect.value === "خودتان یک آدرس اضافه کنید") {
+                    // Show the input field and hide the select box
+                    urlInput.style.display = "block";
+                    urlSelect.style.display = "none";
+                } else {
+                    // Show the select box and hide the input field
+                    urlInput.style.display = "none";
+                    urlSelect.style.display = "block";
+                }
+            });
+        });
+    </script>
 @endsection

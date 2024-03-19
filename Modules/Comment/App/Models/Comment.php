@@ -20,6 +20,7 @@ class Comment extends Model
         return $this->morphTo();
     }
 
+
     public function user()
     {
         return $this->belongsTo(User::class, 'author_id');
@@ -30,6 +31,13 @@ class Comment extends Model
     {
         return $this->belongsTo($this, 'parent_id');
     }
+
+    public function children()
+    {
+        return $this->hasMany($this, 'parent_id')->get()->toArray();
+    }
+
+
 
     public function answers()
     {

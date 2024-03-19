@@ -49,11 +49,11 @@
                               کد پست :   {{$comment->commentable->id}}    --------   مشخصات پست : {{$comment->commentable->title}}  -----  دسته بندی : {{$comment->commentable->category->name}}
 
                         </h5>
-                        <p class="card-text">{{ $comment->body }}</p>
+                        <p class="card-text">{!! $comment->body !!}</p>
                     </section>
 
                     @if($comment->parent_id == NULL)
-
+               
                 <section>
 
                     <form action=" {{ route('admin.content.comment.answer', $comment->id) }}" method="post">
@@ -62,7 +62,12 @@
                             <section class="col-12">
                                 <div class="form-group me-3 ">
                                     <label for="">پاسخ ادمین</label>
-                                    <textarea name="body" class="form-control form-control-sm " rows="4"></textarea>
+                                    @if(!empty($comment->children()))
+                                        <textarea name="body" class="form-control form-control-sm " rows="4" disabled>قبلا پاسخ داده شده است</textarea>
+                                    @else
+                                        <textarea name="body" class="form-control form-control-sm " rows="4" ></textarea>
+                                    @endif
+
                                 </div>
                                 @error('body')
                                 <span>
@@ -73,15 +78,20 @@
                                 @enderror
                             </section>
 
+                            @if(empty($comment->children()))
                                 <section class="col-12 mt-sm-2 mb-2 me-3">
                                     <button class="btn btn-primary btn-sm">ثبت</button>
                                 </section>
+                            @endif
                             </section>
 
                     </form>
 
                 </section>
                     @endif
+
+
+
 
             </section>
         </section>

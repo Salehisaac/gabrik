@@ -29,6 +29,11 @@
                 <span>گالری ها</span>
             </a>
 
+            <a href="{{ route('admin.main_image.index') }}" class="sidebar-link">
+                <i class="fas fa-bars"></i>
+                <span>عکس های صفحه ی اصلی</span>
+            </a>
+
             @php
 
             $unseenComments = Modules\Comment\App\Models\Comment::where('seen',0)->count();

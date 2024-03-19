@@ -12,9 +12,7 @@
 
 @section('content')
 <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en">
-<section class="u-clearfix u-section-1" id="sec-db23">
-    <div class="u-clearfix u-image u-image-round u-radius u-sheet u-image-1" style="background-image: url('{{ asset($post->image) }}')" data-image-width="2000" data-image-height="1333"></div>
-</section>
+
 <section class="u-align-center u-clearfix u-section-2" id="sec-5f94">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="custom-expanded u-carousel u-gallery u-layout-thumbnails u-lightbox u-no-transition u-show-text-always u-gallery-1" id="carousel-7da6" data-interval="5000" data-u-ride="carousel">
@@ -192,8 +190,9 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                     <div class="u-layout" style="">
                         <div class="u-layout-row" style="">
                             <div class="u-align-center u-container-style u-layout-cell u-left-cell u-palette-2-light-3 u-radius u-shape-round u-size-60 u-size-xs-60 u-layout-cell-1" src="">
-                                <div class="u-container-layout u-container-layout-1">
+                                <div class="u-container-layout u-container-layout-1" style="text-align: right; padding-right: 20px;"> <!-- Adjusted padding-right here -->
                                     <h2 class="u-text u-text-1">{{ $post->title }}</h2>
+                                    <hr>
                                     <p class="u-align-right u-text u-text-2">{!! $post->content !!}</p>
                                 </div>
                             </div>
@@ -203,6 +202,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
                 <img class="u-image u-image-round u-radius u-image-1" src="{{ asset($post->image) }}" alt="" data-image-width="2000" data-image-height="1333">
             </div>
         </section>
+
         @if($post->video !== null)
         <section class="u-clearfix u-section-2" id="sec-a09b">
             <div class="u-clearfix u-sheet u-sheet-1">

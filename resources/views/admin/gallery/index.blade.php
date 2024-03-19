@@ -56,7 +56,7 @@
 
                             <tr>
                                 <th>{{ $key += 1 }}</th>
-                                <td>{{ \Illuminate\Support\Str::limit(strip_tags(htmlspecialchars_decode($gallery->description)), 30) }} ...</td>
+                                <td>{!! \Illuminate\Support\Str::limit($gallery->description, 30) !!}</td>
                                 <td>{{ $gallery->user->name }}</td>
 
                                 <td>

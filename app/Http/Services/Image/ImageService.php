@@ -3,10 +3,12 @@
 namespace App\Http\Services\Image;
 
 use Illuminate\Support\Facades\Config;
-use Intervention\Image\Facades\Image;
-use Intervention\Image\ImageManager;
+
 use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
+
 use Nette\Utils\Random;
+
 
 
 class ImageService extends ImageToolsService
@@ -19,8 +21,6 @@ class ImageService extends ImageToolsService
         //execute provider
         $this->provider();
 
-        $manager = new ImageManager(new Driver());
-        $proper_image = $manager->read($image);
         $imagePath = 'admin-assets/'. $directory .'/images';
 
         if (!is_dir($imagePath))
@@ -29,21 +29,20 @@ class ImageService extends ImageToolsService
         }
 
 
-        $imagePath = $imagePath . '/' . $this->getImageName() .Random::generate() . now() . '.' . $this->getImageFormat();
-        $proper_image->save($imagePath);
-        return $imagePath;
+        $imageName = $this->getImageName() .Random::generate() . now() . '.' . $this->getImageFormat();
+        $realPath = $imagePath .'/'.$imageName;
+        $image->move($imagePath , $imageName);
+        return $realPath;
     }
 
 
-    public function fitAndSave($image, $width, $height)
+    public function fitAndSave($image)
     {
-         //set image
-         $this->setImage($image);
-         //execute provider
-         $this->provider();
-         //save image
-         $result = Image::make($image->getRealPath())->fit($width, $height)->save(public_path($this->getImageAddress()), null, $this->getImageFormat());
-         return $result ? $this->getImageAddress() : false;
+         $saved_image = Image::make($image)
+            ->fit(300, 300)
+            ->save(public_path('images/image.jpg'));
+
+         return $saved_image;
     }
 
     public function createIndexAndSave($image)

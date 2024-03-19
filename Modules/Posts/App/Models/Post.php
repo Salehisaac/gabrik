@@ -24,6 +24,16 @@ class Post extends Model
         ];
     }
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($post) {
+            // Delete all comments associated with this post
+            $post->comments()->delete();
+        });
+    }
+
     protected $casts = ['image' => 'array'];
     protected $fillable = [
         'title',
@@ -53,7 +63,7 @@ class Post extends Model
 
     public function comments()
     {
-        return $this->morphMany('App\Models\Content\Comment', 'commentable');
+        return $this->morphMany('App\Models\Comment', 'commentable');
     }
 
     protected static function newFactory()

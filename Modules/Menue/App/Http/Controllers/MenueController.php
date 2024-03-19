@@ -4,6 +4,7 @@ namespace Modules\Menue\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\Category\App\Models\Category;
 use Modules\Menue\App\Http\Requests\MenuRequest;
 use Modules\Menue\App\Models\Menu;
 
@@ -28,7 +29,8 @@ class MenueController extends Controller
     public function create()
     {
         $menus = Menu::where('parent_id', 0)->orWhere('parent_id', NULL)->get();
-        return view('menue::create', compact('menus'));
+        $categories = Category::all();
+        return view('menue::create', compact('menus' , 'categories'));
     }
 
     /**
@@ -41,7 +43,10 @@ class MenueController extends Controller
     {
         $inputs = $request->all();
 
-
+        if ($inputs['url'] === null)
+        {
+            $inputs['url'] = $inputs['url_select'];
+        }
         $menu = Menu::create($inputs);
         return redirect()->route('admin.content.menu.index')->with('swal-success', 'منوی جدید شما با موفقیت ثبت شد  ');
     }

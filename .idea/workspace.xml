@@ -5,15 +5,120 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d973c092-3055-4c2f-8c53-2f2f9b1ca65c" name="Changes" comment="adding assets 🛸">
-      <change afterPath="$PROJECT_DIR$/public/css/Page-2-no-gallery.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/mainImage/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/mainImage/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/mainImage/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Posts/resources/views/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Posts/resources/views/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/head-tag.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/head-tag.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Comment/App/Models/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Comment/App/Models/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Comment/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Comment/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Comment/resources/views/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Comment/resources/views/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Menue/App/Http/Controllers/MenueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Menue/App/Http/Controllers/MenueController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Menue/App/Http/Requests/MenuRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Menue/App/Http/Requests/MenuRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Menue/resources/views/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Menue/resources/views/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Posts/App/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Posts/App/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ImageGalleryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ImageGalleryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Services/Image/ImageService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Services/Image/ImageService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/Page-2-no-gallery.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/Page-2-no-gallery.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/gallery/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/gallery/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/374b9190e5bc85bc0026ad6d5ff6337b.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/374b9190e5bc85bc0026ad6d5ff6337b.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/ee217f7b8a5757a274ee24e0cb8aa33c.php" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/ee217f7b8a5757a274ee24e0cb8aa33c.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Collection.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Collection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Cmyk/Channels/Key.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Cmyk/Channels/Key.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Cmyk/Channels/Magenta.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Cmyk/Channels/Magenta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Cmyk/Channels/Yellow.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Cmyk/Channels/Yellow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Cmyk/Color.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Cmyk/Color.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Hsl/Color.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Hsl/Color.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Hsv/Color.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Hsv/Color.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Rgb/Channels/Alpha.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Rgb/Channels/Alpha.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Rgb/Color.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Colors/Rgb/Color.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/AbstractDecoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/AbstractDecoder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/AbstractDrawModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/AbstractDrawModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/AbstractDriver.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/AbstractDriver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/AbstractInputHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/AbstractInputHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Analyzers/PixelColorAnalyzer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Analyzers/PixelColorAnalyzer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Cloner.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Cloner.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Decoders/AbstractDecoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Decoders/AbstractDecoder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Decoders/BinaryImageDecoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Decoders/BinaryImageDecoder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Decoders/FilePathImageDecoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Decoders/FilePathImageDecoder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Decoders/Traits/CanDecodeGif.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Decoders/Traits/CanDecodeGif.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Driver.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Driver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Encoders/GifEncoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Encoders/GifEncoder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Frame.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Frame.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/ContainModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/ContainModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/CoverDownModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/CoverDownModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/CoverModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/CoverModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/CropModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/CropModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/FillModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/FillModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/PlaceModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/PlaceModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/ResizeCanvasModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/ResizeCanvasModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/ResizeModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/ResizeModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/RotateModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/RotateModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/SliceAnimationModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/SliceAnimationModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/TextModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Gd/Modifiers/TextModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Analyzers/PixelColorAnalyzer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Analyzers/PixelColorAnalyzer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Core.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Core.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Decoders/FilePathImageDecoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Decoders/FilePathImageDecoder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Driver.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Driver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Modifiers/ColorspaceModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Modifiers/ColorspaceModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Modifiers/CoverDownModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Modifiers/CoverDownModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Modifiers/ResizeModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Modifiers/ResizeModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Modifiers/SliceAnimationModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Modifiers/SliceAnimationModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Modifiers/TextModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Drivers/Imagick/Modifiers/TextModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Encoders/FileExtensionEncoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Encoders/FileExtensionEncoder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Encoders/MediaTypeEncoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Encoders/MediaTypeEncoder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/AnimationException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/AnimationException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/ColorException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/ColorException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/DecoderException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/DecoderException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/EncoderException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/EncoderException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/FontException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/FontException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/GeometryException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/GeometryException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/InputException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/InputException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/NotSupportedException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/NotSupportedException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/NotWritableException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Exceptions/NotWritableException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Geometry/Rectangle.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Geometry/Rectangle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Geometry/Tools/RectangleResizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Geometry/Tools/RectangleResizer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Image.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Image.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/ImageManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/ImageManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/AnalyzerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/AnalyzerInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/ColorChannelInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/ColorChannelInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/ColorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/ColorInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/ColorProcessorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/ColorProcessorInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/CoreInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/CoreInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/DecoderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/DecoderInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/DriverInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/DriverInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/EncoderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/EncoderInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/FileInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/FileInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/FontInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/FontInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/FrameInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/FrameInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/ImageInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/ImageInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/InputHandlerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/InputHandlerInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/ModifierInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/ModifierInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/SizeInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Interfaces/SizeInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/ModifierStack.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/ModifierStack.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/ColorspaceModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/ColorspaceModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/ContainModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/ContainModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/CoverModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/CoverModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/CropModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/CropModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/GammaModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/GammaModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/PlaceModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/PlaceModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/RemoveAnimationModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/RemoveAnimationModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/ResizeCanvasModifier.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Modifiers/ResizeCanvasModifier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Resolution.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Resolution.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Typography/Font.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Typography/Font.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/intervention/image/src/Typography/FontFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/intervention/image/src/Typography/FontFactory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,28 +290,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/saleh/Desktop/laravel/gabrik/public/css",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/saleh/Desktop/laravel/laravel-api&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/mainImage" />
       <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/resources/css" />
       <recent name="$PROJECT_DIR$/resources/views/auth/layouts" />
       <recent name="$PROJECT_DIR$/config" />
-      <recent name="$PROJECT_DIR$/vendor/intervention/image" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/css" />
@@ -223,7 +328,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14475.35" />
+        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14808.18" />
       </set>
     </attachedChunks>
   </component>
@@ -275,6 +380,12 @@
       <workItem from="1709582162052" duration="7274000" />
       <workItem from="1709756667903" duration="132000" />
       <workItem from="1709791196996" duration="7444000" />
+      <workItem from="1710019246745" duration="5498000" />
+      <workItem from="1710099336870" duration="517000" />
+      <workItem from="1710103494618" duration="461000" />
+      <workItem from="1710594695188" duration="13382000" />
+      <workItem from="1710760113241" duration="80000" />
+      <workItem from="1710792802931" duration="1000" />
     </task>
     <task id="LOCAL-00001" summary="category validation test ✔️">
       <option name="closed" value="true" />
