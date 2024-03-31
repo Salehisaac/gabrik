@@ -7,8 +7,9 @@ use Modules\Posts\App\Models\Post;
 
 class PostController extends Controller
 {
-    public function show(Post $post)
+    public function show($slug)
     {
+        $post = Post::where('slug', $slug)->firstOrFail();
         $randomPosts = Post::whereNotIn('id', [$post->id])
             ->inRandomOrder()
             ->take(3)

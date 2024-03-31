@@ -14,7 +14,7 @@ use Modules\Posts\App\Http\Controllers\PostsController;
 |
 */
 
-Route::group([], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::resource('posts', PostsController::class)->names('posts');
     Route::get('post/status/{post}' , [PostsController::class , 'status'])->name('posts.status');
     Route::get('post/commentable/{post}' , [PostsController::class , 'commentable'])->name('posts.commentable');

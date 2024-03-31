@@ -41,6 +41,7 @@ class MenueController extends Controller
      */
     public function store(MenuRequest $request )
     {
+
         $inputs = $request->all();
 
         if ($inputs['url'] === null)

@@ -84,12 +84,15 @@
                                 </td>
 
 
-
+                                @if($post->video !== null)
                                 <td>
                                     <a href="{{ asset('videos/' .$post->video) }}" class="btn btn-warning btn-sm" download>
                                         <i class="fa fa-download ms-1"></i>
                                     </a>
                                 </td>
+                                @else
+                                    <td>ندارد</td>
+                                @endif
 
 
                                 <td>{{ $post->type }}</td>

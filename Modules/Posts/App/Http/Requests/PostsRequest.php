@@ -15,7 +15,7 @@ class PostsRequest extends FormRequest
         {
             return [
                 'title' => 'required|string|max:120|min:2|regex:/^[ا-یa-zA-Z0-9\-۰-۹يء.آ,><\/;\n\r& ]+$/u',
-                'content' => 'required|string|max:500|min:5|regex:/^[ا-یa-zA-Z0-9\-۰-۹يء.آ,><\/;\n\r& ]+$/u',
+                'content' => 'required|string|max:500|min:5|regex:/^[ا-یa-zA-Z۰-۹\-يء.آ,><\/;\n\r& ]+$/u',
                 'summary' => 'required|string|max:200|min:5',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4000',
                 'gallery.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',

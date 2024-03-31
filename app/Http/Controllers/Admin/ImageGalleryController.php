@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Services\Image\ImageService;
 use App\Models\ImageGallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ImageGalleryController extends Controller
 {
@@ -30,7 +31,7 @@ class ImageGalleryController extends Controller
             ]
         );
         $inputs = $request->all();
-        $inputs['uploaded_by'] = 9;
+        $inputs['uploaded_by'] = Auth::id();
 
 
         if ($request->hasAny('gallery'))

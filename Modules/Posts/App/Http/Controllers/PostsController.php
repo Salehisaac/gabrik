@@ -8,6 +8,7 @@ use App\Http\Services\Image\ImageService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Modules\Category\App\Models\Category;
 use Modules\Posts\App\Http\Requests\PostsRequest;
 use Modules\Posts\App\Models\Post;
@@ -43,7 +44,7 @@ class PostsController extends Controller
 
 
         $inputs = $request->all();
-        $inputs['user_id'] = 9;
+        $inputs['user_id'] = Auth::id();
 
         if ($request->hasFile('image'))
         {

@@ -55,8 +55,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'] , function ()
 
 
 Route::prefix('post')->group(function () {
-    Route::get('/{post}' , [\App\Http\Controllers\PostController::class , 'show'])->name('post.show');
+    Route::get('/{slug}' , [\App\Http\Controllers\PostController::class , 'show'])->name('post.show');
 });
+
+Route::get('/contactUs' , [\App\Http\Controllers\Controller::class , 'contactUs'])->name('contactUs.show');
 
 
 require __DIR__.'/auth.php';

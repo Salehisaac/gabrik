@@ -17,9 +17,9 @@ return new class extends Migration
             $table->text('content');
             $table->string('summary');
             $table->string('image');
-            $table->string('gallery');
+            $table->string('gallery')->nullable();
             $table->string('slug');
-            $table->string('video');
+            $table->string('video')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->enum('type', ['blog', 'project']);

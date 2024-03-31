@@ -31,6 +31,7 @@
     </section>
 
     @include('admin.alerts.sweet-alert.success')
+    @include('admin.alerts.sweet-alert.warning')
     @include('admin.alerts.sweet-alert.error')
 
 </body>

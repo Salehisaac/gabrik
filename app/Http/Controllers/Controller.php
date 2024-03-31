@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ImageGallery;
+use App\Models\MainImage;
 use App\Models\Video;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -18,6 +19,12 @@ class Controller extends BaseController
         $projects = Post::where('type' , 'project')->orderBy('created_at', 'desc')->limit(8)->get();
         $galleries = ImageGallery::where('status' , '1')->limit(1)->get();
         $video = Video::where('status' , '1')->limit(1)->get();
-        return view('home' , compact('projects' , 'galleries' , 'video'));
+        $mainImages = MainImage::where('status' , '1')->get();
+        return view('home' , compact('projects' , 'galleries' , 'video' , 'mainImages'));
+    }
+
+    public function contactUs()
+    {
+        return view('contact-us');
     }
 }

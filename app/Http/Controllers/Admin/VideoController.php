@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Services\File\FileService;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VideoController extends Controller
 {
@@ -23,7 +24,7 @@ class VideoController extends Controller
     public function store(Request $request , FileService $fileService)
     {
         $inputs = $request->all();
-        $inputs['uploaded_by'] = 9;
+        $inputs['uploaded_by'] = Auth::id();
 
 
         if ($request->hasAny('video'))

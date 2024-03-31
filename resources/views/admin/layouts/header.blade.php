@@ -26,125 +26,125 @@
                    </span>
             </section>
 
-            <section>
-                   <span class="ms-2 ms-md-4 position-relative">
-                       <span id="header-notification-toggle" class="pointer">
-                           <i class="far fa-bell pointer"></i>
-                             @if($notifications->count() !==0)
+{{--            <section>--}}
+{{--                   <span class="ms-2 ms-md-4 position-relative">--}}
+{{--                       <span id="header-notification-toggle" class="pointer">--}}
+{{--                           <i class="far fa-bell pointer"></i>--}}
+{{--                             @if($notifications->count() !==0)--}}
 
-                           <sup class="badge bg-danger">
-                             {{ $notifications->count() }}
-                           </sup>
-                           @endif
-                       </span>
+{{--                           <sup class="badge bg-danger">--}}
+{{--                             {{ $notifications->count() }}--}}
+{{--                           </sup>--}}
+{{--                           @endif--}}
+{{--                       </span>--}}
 
-                       <section id="header-notification" class="header-notification rounded d-none">
-                           <section class="d-flex justify-content-between">
-                               <span class="px-2">
-                                   نوتیفیکیشن ها
-                               </span>
-                               <span class="px-2">
-                                   <sup class="badge bg-danger">جدید</sup>
-                               </span>
-                           </section>
+{{--                       <section id="header-notification" class="header-notification rounded d-none">--}}
+{{--                           <section class="d-flex justify-content-between">--}}
+{{--                               <span class="px-2">--}}
+{{--                                   نوتیفیکیشن ها--}}
+{{--                               </span>--}}
+{{--                               <span class="px-2">--}}
+{{--                                   <sup class="badge bg-danger">جدید</sup>--}}
+{{--                               </span>--}}
+{{--                           </section>--}}
 
-                           <ul class="list-group rounded px-0">
+{{--                           <ul class="list-group rounded px-0">--}}
 
-                               @foreach($notifications as $notification)
+{{--                               @foreach($notifications as $notification)--}}
 
-                                <li class="list-group-item list-group-item-action">
-                                    <section class="media">
-                                        <section class="media-body ps-1">
-                                            <p class="notification-time text-dark">{{$notification['data']['message']}}</p>
-                                        </section>
+{{--                                <li class="list-group-item list-group-item-action">--}}
+{{--                                    <section class="media">--}}
+{{--                                        <section class="media-body ps-1">--}}
+{{--                                            <p class="notification-time text-dark">{{$notification['data']['message']}}</p>--}}
+{{--                                        </section>--}}
 
-                                    </section>
-                                </li>
-                               @endforeach
+{{--                                    </section>--}}
+{{--                                </li>--}}
+{{--                               @endforeach--}}
 
 
-                           </ul>
+{{--                           </ul>--}}
 
-                       </section>
-                   </span>
+{{--                       </section>--}}
+{{--                   </span>--}}
 
-                <span class="ms-2 ms-md-4 position-relative">
-                        <span id="header-comment-toggle">
-                           <i class="far fa-comment pointer"></i>
-                            @if($unseenComments->count() !==0)
-                            <sup class="badge bg-danger">
+{{--                <span class="ms-2 ms-md-4 position-relative">--}}
+{{--                        <span id="header-comment-toggle">--}}
+{{--                           <i class="far fa-comment pointer"></i>--}}
+{{--                            @if($unseenComments->count() !==0)--}}
+{{--                            <sup class="badge bg-danger">--}}
 
-                                  {{ $unseenComments->count() }}
-                            </sup>
-                            @endif
-                       </span>
+{{--                                  {{ $unseenComments->count() }}--}}
+{{--                            </sup>--}}
+{{--                            @endif--}}
+{{--                       </span>--}}
 
-                       <section id="header-comment" class="header-comment">
+{{--                       <section id="header-comment" class="header-comment">--}}
 
-                           <section class="border-bottom px-4">
-                               <input type="text" class="form-control form-control-sm my-4" placeholder="جستجو...">
-                           </section>
+{{--                           <section class="border-bottom px-4">--}}
+{{--                               <input type="text" class="form-control form-control-sm my-4" placeholder="جستجو...">--}}
+{{--                           </section>--}}
 
-                           <section class="header-comment-wrapper">
-                               <ul class="list-group rounded px-0">
+{{--                           <section class="header-comment-wrapper">--}}
+{{--                               <ul class="list-group rounded px-0">--}}
 
-                                   @foreach($unseenComments as $unseenComment)
+{{--                                   @foreach($unseenComments as $unseenComment)--}}
 
-                                   <li class="list-group-item list-group-item-action">
-                                       <section class="media d-flex ">
-                                           <img src="{{ asset('admin-assets/images/avatar-2.jpg') }}" alt="avatar" class="notification-img" style="height: 50px">
+{{--                                   <li class="list-group-item list-group-item-action">--}}
+{{--                                       <section class="media d-flex ">--}}
+{{--                                           <img src="{{ asset('admin-assets/images/avatar-2.jpg') }}" alt="avatar" class="notification-img" style="height: 50px">--}}
 
-                                           <section class="media-body pe-1">
-                                               <section class="d-flex justify-content-between">
-                                               <h5 class="comment-user">{{ $unseenComment->user->fullname }}</h5>
-                                               <a href="#"><span class="font-size-12 px-5">{{ $unseenComment->body }} </span></a>
-                                               </section>
+{{--                                           <section class="media-body pe-1">--}}
+{{--                                               <section class="d-flex justify-content-between">--}}
+{{--                                               <h5 class="comment-user">{{ $unseenComment->user->fullname }}</h5>--}}
+{{--                                               <a href="#"><span class="font-size-12 px-5">{{ $unseenComment->body }} </span></a>--}}
+{{--                                               </section>--}}
 
-                                           </section>
-                                       </section>
-                                   </li>
+{{--                                           </section>--}}
+{{--                                       </section>--}}
+{{--                                   </li>--}}
 
-                                   @endforeach
+{{--                                   @endforeach--}}
 
-                               </ul>
-                           </section>
-                       </section>
-                   </span>
+{{--                               </ul>--}}
+{{--                           </section>--}}
+{{--                       </section>--}}
+{{--                   </span>--}}
 
-                <span class="ms-3 ms-md-5 position-relative">
-                       <span id="header-profile-toggle" class="pointer">
-                           <img class="header-avatar" src="{{ asset('admin-assets/images/avatar-2.jpg') }}" alt="avatar">
-                           <span class="header-username">کامران محمدی</span>
-                           <i class="fas fa-angle-down"></i>
-                       </span>
+{{--                <span class="ms-3 ms-md-5 position-relative">--}}
+{{--                       <span id="header-profile-toggle" class="pointer">--}}
+{{--                           <img class="header-avatar" src="{{ asset('admin-assets/images/avatar-2.jpg') }}" alt="avatar">--}}
+{{--                           <span class="header-username">کامران محمدی</span>--}}
+{{--                           <i class="fas fa-angle-down"></i>--}}
+{{--                       </span>--}}
 
-                   <section id="header-profile" class="header-profile rounded">
-                       <section class="list-group rounded">
-                           <a href="#" class="list-group-item list-group-item-action header-profile-link">
-                               <i class="fas fa-cog"></i>تنظیمات
-                           </a>
+{{--                   <section id="header-profile" class="header-profile rounded">--}}
+{{--                       <section class="list-group rounded">--}}
+{{--                           <a href="#" class="list-group-item list-group-item-action header-profile-link">--}}
+{{--                               <i class="fas fa-cog"></i>تنظیمات--}}
+{{--                           </a>--}}
 
-                           <a href="#" class="list-group-item list-group-item-action header-profile-link">
-                               <i class="far fa-user"></i>کاربر
-                           </a>
+{{--                           <a href="#" class="list-group-item list-group-item-action header-profile-link">--}}
+{{--                               <i class="far fa-user"></i>کاربر--}}
+{{--                           </a>--}}
 
-                           <a href="#" class="list-group-item list-group-item-action header-profile-link">
-                               <i class="far fa-envelope"></i>پیام ها
-                           </a>
+{{--                           <a href="#" class="list-group-item list-group-item-action header-profile-link">--}}
+{{--                               <i class="far fa-envelope"></i>پیام ها--}}
+{{--                           </a>--}}
 
-                           <a href="#" class="list-group-item list-group-item-action header-profile-link">
-                               <i class="fas fa-lock"></i>قفل صفحه
-                           </a>
+{{--                           <a href="#" class="list-group-item list-group-item-action header-profile-link">--}}
+{{--                               <i class="fas fa-lock"></i>قفل صفحه--}}
+{{--                           </a>--}}
 
-                           <a href="#" class="list-group-item list-group-item-action header-profile-link">
-                               <i class="fas fa-sign-out-alt"></i>خروج
-                           </a>
-                       </section>
-                   </section>
+{{--                           <a href="#" class="list-group-item list-group-item-action header-profile-link">--}}
+{{--                               <i class="fas fa-sign-out-alt"></i>خروج--}}
+{{--                           </a>--}}
+{{--                       </section>--}}
+{{--                   </section>--}}
 
-                   </span>
+{{--                   </span>--}}
 
-            </section>
+{{--            </section>--}}
 
         </section>
 

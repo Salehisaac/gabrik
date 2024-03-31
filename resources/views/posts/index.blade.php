@@ -14,7 +14,7 @@
 <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en">
 
 <section class="u-align-center u-clearfix u-section-2" id="sec-5f94">
-    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1" >
         <div class="custom-expanded u-carousel u-gallery u-layout-thumbnails u-lightbox u-no-transition u-show-text-always u-gallery-1" id="carousel-7da6" data-interval="5000" data-u-ride="carousel">
             <div class="u-carousel-inner u-gallery-inner" role="listbox" style="border-radius: 10px;box-shadow: 2px 2px 8px 0px rgba(128,128,128,1);">
                 <div class="u-active u-carousel-item u-gallery-item u-carousel-item-1">
@@ -100,22 +100,22 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
     </div>
 </section>
 @endif
-<section class="u-clearfix u-grey-10 u-section-4" id="sec-acd3">
+<section class="u-clearfix u-grey-10 u-section-4" style="background-color: white;margin-top: 10px" id="sec-acd3">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
         <div class="u-blog u-expanded-width u-blog-1">
             <div class="u-list-control"></div>
             <div class="u-repeater u-repeater-1"><!--blog_post-->
                 @foreach($randomPosts as $randomPost)
                     <div class="u-blog-post u-container-style u-repeater-item u-white u-repeater-item-1">
-                        <div class="u-container-layout u-similar-container u-container-layout-1">
-                            <a class="u-post-header-link" href="{{ route('post.show' , $randomPost->id) }}"><!--blog_post_image-->
+                        <div class="u-container-layout u-similar-container u-container-layout-1" style="background-color: #e5e5e5;border-radius: 10px">
+                            <a class="u-post-header-link" href="{{ route('post.show' , $randomPost->slug) }}"><!--blog_post_image-->
                                 <img alt=""class="u-blog-control u-expanded-width u-image u-image-default u-image-1" style="border-radius: 10px" src="{{ asset($randomPost->image) }}"><!--/blog_post_image-->
                             </a><!--blog_post_header-->
                             <h4 class="u-blog-control u-text u-text-1" style="text-align: right">
-                                <a class="u-post-header-link text-right" href="{{ route('post.show' , $randomPost->id) }}">{{ $randomPost->title }}</a>
+                                <a class="u-post-header-link text-right" href="{{ route('post.show' , $randomPost->slug) }}">{{ $randomPost->title }}</a>
                             </h4><!--/blog_post_header--><!--blog_post_content-->
                             <div class="u-blog-control u-post-content u-text u-text-2 fr-view" style="text-align: right">{!! $randomPost->summary !!}</div><!--/blog_post_content--><!--blog_post_readmore-->
-                            <a href="{{ route('post.show' , $randomPost->id) }}" class="u-blog-control u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-none u-btn-1 text-right" style="margin-left: 200px">اطلاعات بیشتر</a>
+                            <a href="{{ route('post.show' , $randomPost->slug) }}" class="u-blog-control u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-none u-btn-1 text-right" style="margin-left: 200px">اطلاعات بیشتر</a>
                         </div>
                     </div>
                 @endforeach
@@ -218,22 +218,22 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
             </div>
         </section>
         @endif
-        <section class="u-clearfix u-grey-10 u-section-3" id="sec-acd3">
+        <section class="u-clearfix u-grey-10 u-section-3" style="background-color: white" id="sec-acd3">
             <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
                 <div class="u-blog u-expanded-width u-blog-1">
                     <div class="u-list-control"></div>
                     <div class="u-repeater u-repeater-1">
                         @foreach($randomPosts as $randomPost)
                         <div class="u-blog-post u-container-style u-repeater-item u-white u-repeater-item-1">
-                            <div class="u-container-layout u-similar-container u-container-layout-1">
-                                <a class="u-post-header-link" href="{{ route('post.show' , $randomPost->id) }}"><!--blog_post_image-->
+                            <div class="u-container-layout u-similar-container u-container-layout-1" style="background-color: #fbeced;border-radius: 10px">
+                                <a class="u-post-header-link" href="{{ route('post.show' , $randomPost->slug) }}"><!--blog_post_image-->
                                     <img alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-1" style="border-radius: 10px" src="{{asset($randomPost->image)}}"><!--/blog_post_image-->
                                 </a><!--blog_post_header-->
                                 <h4 class="u-blog-control u-text u-text-1" style="text-align: right">
-                                    <a class="u-post-header-link" href="{{ route('post.show' , $randomPost->id) }}">{{ $randomPost->title }}</a>
+                                    <a class="u-post-header-link" href="{{ route('post.show' , $randomPost->slug) }}">{{ $randomPost->title }}</a>
                                 </h4><!--/blog_post_header--><!--blog_post_content-->
                                 <div class="u-blog-control u-post-content u-text u-text-2 fr-view" style="text-align: right">{!! $randomPost->summary !!}</div><!--/blog_post_content--><!--blog_post_readmore-->
-                                <a href="{{ route('post.show' , $randomPost->id) }}" class="u-blog-control u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-none u-btn-1" style="margin-left: 200px">اطلاعات بیشتر</a>
+                                <a href="{{ route('post.show' , $randomPost->slug) }}" class="u-blog-control u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-none u-btn-1" style="margin-left: 200px">اطلاعات بیشتر</a>
                             </div>
                         </div>
                         @endforeach
@@ -243,7 +243,7 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
             </div>
         </section>
         <section class="u-align-center u-clearfix u-grey-5 u-section-4" id="sec-8898">
-            <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <div class="u-clearfix u-sheet u-valign-middle u-sheet-1" >
                 <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
                     <div class="u-gutter-0 u-layout">
                         <div class="u-layout-row">
@@ -281,7 +281,8 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         </section>
         <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-cacc"><div class="u-clearfix u-sheet u-sheet-1">
                 <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the Text Element.</p>
-            </div></footer>
+            </div>
+        </footer>
 
         </body>
     @endsection
