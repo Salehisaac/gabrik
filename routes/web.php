@@ -58,6 +58,11 @@ Route::prefix('post')->group(function () {
     Route::get('/{slug}' , [\App\Http\Controllers\PostController::class , 'show'])->name('post.show');
 });
 
+Route::prefix('category')->group(function () {
+    Route::get('/{category}' , [\App\Http\Controllers\CategoryController::class , 'show'])->name('category.show');
+});
+
+
 Route::get('/contactUs' , [\App\Http\Controllers\Controller::class , 'contactUs'])->name('contactUs.show');
 
 

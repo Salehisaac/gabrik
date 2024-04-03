@@ -17,7 +17,7 @@ class CategoryRequest extends FormRequest
                 'name' => 'required|string|max:255|unique:categories,name|regex:/^[ا-یa-zA-Z0-9\-۰-۹يء., ]+$/u',
                 'description' => 'required|string|max:500|min:5|regex:/^[ا-یa-zA-Z0-9\-۰-۹يء.,><\/;\n\r& ]+$/u',
                 'slug' => 'nullable',
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4000',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
                 'status' => 'required|numeric|in:0,1',
                 'tags'=> 'required'
             ];
@@ -30,7 +30,7 @@ class CategoryRequest extends FormRequest
                 'name' => 'required|string|max:255|unique:categories,name|regex:/^[ا-یa-zA-Z0-9\-۰-۹يء., ]+$/u',
                 'description' => 'required|string|max:500|min:5|regex:/^[ا-یa-zA-Z0-9\-۰-۹يء.,><\/;\n\r& ]+$/u',
                 'slug' => 'nullable',
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
                 'status' => 'required|numeric|in:0,1',
                 'tags'=> 'required'
             ];

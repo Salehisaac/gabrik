@@ -84,7 +84,7 @@
                                     <div id="urlSelection">
                                         <select id="urlSelect" name="url_select" class="form-control form-control-sm">
                                             @foreach($categories as $category)
-                                                <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                         <input id="urlInput" name="url" type="text" class="form-control form-control-sm" value="{{ old('url') }}" placeholder="خودتان یک آدرس اضافه کنید">

@@ -21,7 +21,11 @@
                 @foreach($menus as $menu)
                     <ul class="u-nav u-unstyled u-nav-1">
                         <li class="u-nav-item" style="display: block">
+                            @if(is_string($menu) == true)
                             <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{{env('APP_URL') . '/'. $menu->url}}" style="padding: 10px 20px; font-weight: bold; font-style: normal;">{{ $menu->name }}</a>
+                            @else
+                                <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{{route('category.show' , $menu->url)}}" style="padding: 10px 20px; font-weight: bold; font-style: normal;">{{ $menu->name }}</a>
+                            @endif
                             @if($menu->children->count() !== 0)
                                 <div class="u-nav-popup">
                                     <ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10">
